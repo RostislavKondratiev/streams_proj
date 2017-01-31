@@ -1,0 +1,82 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title"><img class="logo" src="images/logo.jpg" alt=""></span>
+                <div class="mdl-layout-spacer"></div>
+                <p class="username">{{$ctrl.user.email}}</p>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored header-button" ng-cloak ng-if="!$ctrl.user" ng-click="$ctrl.showdialog()">
+                    Sign In
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent header-button" ng-cloak ng-if="$ctrl.user" ng-click="$ctrl.logout()">
+                    Sign Out
+                </button>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+                <a class='mdl-navigation__link' href="">Link</a>
+                <a class='mdl-navigation__link' href="">Link</a>
+                <a class='mdl-navigation__link' href="">Link</a>
+                <a class='mdl-navigation__link' href="">Link</a>
+            </nav>
+        </div>
+        <main class='mdl-layout__content'>
+            <div class="page-content">
+            </div>
+        </main>
+    </div>
+                    <dialog id='dialog' class="mdl-dialog">
+                        <h4 class="mdl-dialog__title">Hello Guest</h4>
+                        <div class="mdl-dialog__content">
+                            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                            <div class="mdl-tabs__tab-bar">
+                                <a href="#login-panel" class="mdl-tabs__tab">Login</a>
+                                <a href="#registration-panel" class="mdl-tabs__tab">Register</a>
+                            </div>
+                            
+                            <div class="mdl-tabs__panel is-active" id="login-panel">
+                                <form class="mdl-grid" ng-submit="$ctrl.login($ctrl.data.logmail, $ctrl.data.logpass)">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                                        <input class="mdl-textfield__input" type="email" id="logmail" ng-model="$ctrl.data.logmail">
+                                        <label class="mdl-textfield__label" for="logmail">Email</label>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                                        <input class="mdl-textfield__input" type="password" id="logpass" ng-model="$ctrl.data.logpass">
+                                        <label class="mdl-textfield__label" for="logpass">Password</label>
+                                    </div>
+                                    <div class="dialog-buttongroup">
+                                        <button type="submit" class="mdl-button submit">Login</button>
+                                        <button type="button" class="mdl-button close" ng-click="$ctrl.closedialog()">Cancel</button>
+                                    </div>
+                                    <div class="social_desk">
+                                        Or Auth via other social networks
+                                    </div>
+                                     <div class="mdl-dialog__actions">
+                                        <a href="#" class="social_logo social_logo_google" ng-click="$ctrl.loginGoogle()"></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mdl-tabs__panel" id="registration-panel">
+                                <form ng-submit="$ctrl.register($ctrl.data.regmail, $ctrl.data.regpass ,$ctrl.data.confpass)" class="mdl-grid" >
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                                        <input class="mdl-textfield__input" type="email" id="regmail" ng-model="$ctrl.data.regmail">
+                                        <label class="mdl-textfield__label" for="regmail">Email</label>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                                        <input class="mdl-textfield__input" type="password" id="regpass" ng-model="$ctrl.data.regpass">
+                                        <label class="mdl-textfield__label" for="regpass">Password</label>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                                        <input class="mdl-textfield__input" type="password" id="regconfpass" ng-model="$ctrl.data.confpass">
+                                        <label class="mdl-textfield__label" for="regconfpass">Confirm Password</label>
+                                    </div>
+                                    <div class="dialog-buttongroup">
+                                        <button type="submit" class="mdl-button submit">Register</button>
+                                        <button type="button" class="mdl-button close" ng-click="$ctrl.closedialog()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </dialog>

@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+.mdl-layout__header {
+  background-color: black; }
+
+.logo {
+  height: 60px;
+  width: 60px; }
+
+#dialog {
+  width: 50%; }
+
+.mdl-dialog__title {
+  text-align: center; }
+
+.submit {
+  background-color: #6ed46e; }
+
+.close {
+  background-color: #f63737; }
+
+.dialog-buttongroup {
+  margin: 0 auto; }
+
+.username {
+  margin: auto 5px; }
+
+.header-button {
+  margin: auto 10px; }
+
+.header-button_red {
+  background-color: red; }
+
+.mdl-dialog__actions {
+  margin-top: 10px;
+  padding: 5px 0;
+  width: 100%;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.social_desk {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; }
+
+.social_logo {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.social_logo_git {
+  background-image: url("../images/github.png"); }
+
+.social_logo_google {
+  background-image: url("../images/google.png"); }
+
+.social_logo_twitter {
+  background-image: url("../images/twitter.png"); }
