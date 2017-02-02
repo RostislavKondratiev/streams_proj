@@ -3,15 +3,27 @@
   padding: 0;
   border: 0; }
 
+body {
+  background-color: #e6e6e6; }
+
 .mdl-layout__header {
   background-color: black; }
 
 .logo {
-  height: 60px;
-  width: 60px; }
+  height: 55px;
+  width: 55px; }
 
-#dialog {
+dialog {
+  top: 15px; }
+
+#dialog, #detail {
   width: 50%; }
+
+dialog::-webkit-backdrop {
+  background: rgba(0, 0, 0, 0.7); }
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7); }
 
 .mdl-dialog__title {
   text-align: center; }
@@ -25,11 +37,18 @@
 .dialog-buttongroup {
   margin: 0 auto; }
 
-.username {
-  margin: auto 5px; }
-
-.header-button {
+.header-right {
   margin: auto 10px; }
+  .header-right.ng-enter {
+    transition: 1s linear all;
+    opacity: 0; }
+  .header-right.ng-enter-active {
+    opacity: 1; }
+  .header-right.ng-leave {
+    transition: 1s linear all;
+    opacity: 1; }
+  .header-right.ng-leave-active {
+    opacity: 0; }
 
 .header-button_red {
   background-color: red; }
@@ -39,10 +58,8 @@
   padding: 5px 0;
   width: 100%;
   height: 40px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -ms-flex-pack: center;
+      justify-content: center; }
 
 .social_desk {
   width: 100%;
@@ -63,3 +80,62 @@
 
 .social_logo_twitter {
   background-image: url("../images/twitter.png"); }
+
+.cardswrap {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 50px; }
+
+.devider.ng-enter {
+  transition: .5s linear all;
+  opacity: 0; }
+
+.devider.ng-enter-active {
+  opacity: 1; }
+
+.cardblock {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 30px; }
+  .cardblock.ng-enter {
+    transition: .5s linear all;
+    opacity: 0; }
+  .cardblock.ng-enter-active {
+    opacity: 1; }
+  .cardblock.ng-leave {
+    transition: .5s linear all;
+    opacity: 1; }
+  .cardblock.ng-leave-active {
+    opacity: 0; }
+
+.cardblock__actions {
+  display: -ms-flexbox;
+  display: flex; }
+
+.cardblock__actions__elem {
+  margin-left: auto; }
+
+.material-icons_color {
+  color: #e6e6e6; }
+
+.cardtitle {
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: right; }
+  .cardtitle h2 {
+    color: white; }
+
+.details__image {
+  width: 100%;
+  height: 700px;
+  margin: 0 auto; }
+
+.devider {
+  margin: 0 auto;
+  height: 200px;
+  background-image: url(../images/devider.jpg);
+  background-size: cover;
+  background-position: center center; }

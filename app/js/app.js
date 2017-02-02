@@ -9,8 +9,17 @@
         preventDuplicates: false,
         preventOpenDuplicates: false,
         target: 'body'
-  });
-});
+        });
+    });
+
+    angular.module('app')
+        .run(function ($rootScope, $timeout) {
+            $rootScope.$on('$viewContentLoaded', function(){
+            $timeout(function() {
+                componentHandler.upgradeAllRegistered();
+            })
+        })
+    })
 
     var config = {
         apiKey: "AIzaSyDfuicTxzKZS46anMXs5ypa1nOGN4OgyRo",

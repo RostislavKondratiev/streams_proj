@@ -3,17 +3,12 @@ angular.module('app')
     .controller('mainCtrl',mainCtrl);
 
 
-mainCtrl.$inject=['$firebaseAuth','toastr']
-function mainCtrl($firebaseAuth, toastr){
+mainCtrl.$inject=['$firebaseAuth','toastr','dataservice']
+function mainCtrl($firebaseAuth, toastr, dataservice){
     var auth = $firebaseAuth();
     
-    var dialog = document.querySelector('#dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    
-
     var self = this;
+
     self.data={};
     self.showdialog=showdialog;
     self.closedialog=closedialog;
@@ -25,6 +20,8 @@ function mainCtrl($firebaseAuth, toastr){
 
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
+        dataservice.userData=authData;
+        console.log(dataservice.userData);
     })
 
     function showdialog() {
@@ -32,7 +29,9 @@ function mainCtrl($firebaseAuth, toastr){
     }
 
     function closedialog() {
+        document.querySelector('main.mdl-layout__content').style.overflowY = '';
         dialog.close();
+        document.querySelector('main.mdl-layout__content').style.overflowY = 'auto';
     }
 
     function register(email, pass, conf){
@@ -42,11 +41,12 @@ function mainCtrl($firebaseAuth, toastr){
     }
 
     function login(email, pass){
-        auth.$signInWithEmailAndPassword(email, pass).then(successHandler, errorHandler)
+        
+        auth.$signInWithEmailAndPassword(email, pass).then(successHandler,errorHandler)
     }
 
     function loginGoogle(){
-        auth.$signInWithPopup('google').then(successHandler, errorHandler)
+        auth.$signInWithPopup('google').then(successHandler,errorHandler)
     }
 
     function logout(){
@@ -54,7 +54,7 @@ function mainCtrl($firebaseAuth, toastr){
     }
 
     function successHandler(firebaseUser){
-        dialog.close();
+        closedialog();
         console.log(firebaseUser);
         toastr.success('Authorization Complete','Success');
     }

@@ -3,20 +3,29 @@
     padding: 0
     border: 0
 
+body
+    background-color: #e6e6e6
 
 .mdl-layout__header
     background-color: black
 
 .logo
-    height: 60px
-    width: 60px        
+    height: 55px
+    width: 55px 
 
-#dialog
-    width: 50%    
+dialog
+    top: 15px
+
+#dialog, #detail
+    width: 50%       
+
+dialog::backdrop
+  background: rgba(0, 0, 0, 0.7)
+
 
 .mdl-dialog__title
     text-align: center
-    // margin-bottom: 30px    
+
 
 .submit
     background-color: #6ed46e
@@ -27,16 +36,21 @@
 .dialog-buttongroup
     margin: 0 auto
 
-.username
-    margin: auto 5px
-
-.header-button
+.header-right
     margin: auto 10px
+    &.ng-enter
+        transition: 1s linear all
+        opacity: 0
+    &.ng-enter-active
+        opacity: 1    
+    &.ng-leave
+        transition: 1s linear all
+        opacity: 1
+    &.ng-leave-active
+        opacity: 0    
 
 .header-button_red
-    background-color: red 
-
-
+    background-color: red
 
 .mdl-dialog__actions
     margin-top: 10px
@@ -65,3 +79,61 @@
 
 .social_logo_twitter
     background-image: url("../images/twitter.png")                  
+
+.cardswrap
+    justify-content: space-around
+    margin-top: 50px
+   
+.devider
+    &.ng-enter
+        transition: .5s linear all
+        opacity: 0
+    &.ng-enter-active
+        opacity: 1    
+
+.cardblock
+    display: flex
+    justify-content: space-around
+    margin-bottom: 30px
+    &.ng-enter
+        transition: .5s linear all
+        opacity: 0
+    &.ng-enter-active
+        opacity: 1    
+    &.ng-leave
+        transition: .5s linear all
+        opacity: 1
+    &.ng-leave-active
+        opacity: 0 
+
+.cardblock__actions
+    display: flex
+
+.cardblock__actions__elem
+    margin-left: auto
+
+.material-icons_color
+    color: #e6e6e6
+
+.cardtitle
+    height: 150px
+    background-size: cover
+    background-repeat: no-repeat
+    text-align: right
+    h2
+        color: white    
+
+.details__image
+    width: 100%
+    height: 700px
+    margin: 0 auto
+
+.devider
+    // display: flex
+    margin: 0 auto
+    height: 200px
+    // width: 95%
+    background-image: url(../images/devider.jpg)    
+    background-size: cover
+    background-position: center center
+
