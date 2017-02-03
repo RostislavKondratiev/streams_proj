@@ -2,7 +2,14 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     prefix = require('gulp-autoprefixer'),
     browserSync = require('browser-sync');
+    proxyMiddleware = require('http-proxy-middleware');
 
+
+const jsonPlaceholderProxy = proxyMiddleware('/api', {
+    target: 'http://api2.goodgame.ru',
+    changeOrigin: true,
+    logLevel: 'debug'
+});
 
 gulp.task('style',function(){
     return gulp.src('app/sass/*.sass')
@@ -17,10 +24,14 @@ gulp.task('style',function(){
 
 gulp.task('server', function(){
     browserSync({
+        notify: false,
         server:{
-            baseDir: 'app'
-        },
-        notify: false
+            baseDir: 'app',
+            middleware: function (req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                next();
+            }
+        }
     });
 });
 

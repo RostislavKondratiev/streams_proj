@@ -3,7 +3,7 @@ angular.module('app')
     .controller('mainCtrl',mainCtrl);
 
 
-mainCtrl.$inject=['$firebaseAuth','toastr','dataservice']
+mainCtrl.$inject=['$firebaseAuth','toastr','dataservice'];
 function mainCtrl($firebaseAuth, toastr, dataservice){
     var auth = $firebaseAuth();
     
@@ -22,7 +22,8 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
         self.user=authData;
         dataservice.userData=authData;
         console.log(dataservice.userData);
-    })
+        // if(authData) createProfile(dataservice.userData.uid.toString());
+    });
 
     function showdialog() {
         dialog.showModal();
@@ -50,9 +51,14 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
     }
 
     function logout(){
+        dataservice.userData={};
         auth.$signOut();
     }
 
+    // function createProfile(id) {
+    //     dataservice.getProfile(id)
+    // }
+    
     function successHandler(firebaseUser){
         closedialog();
         console.log(firebaseUser);

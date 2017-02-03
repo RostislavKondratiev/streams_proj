@@ -1,0 +1,26 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col addplayer">
+        <form ng-submit="$ctrl.addPlayerHandler()">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" ng-model="$ctrl.addplayer.site" type="text" id="sample1" required>
+                <label class="mdl-textfield__label" for="sample1">Enter chanel's URL (without "/" at end)</label>
+            </div>
+            <label class="mdl-radio mdl-js-radio" for="option1">
+                <input type="radio" ng-model="$ctrl.addplayer.service" id="option1" value="twitch" name="player" class="mdl-radio__button" checked required>
+                <span class="mdl-radio__label">Twitch</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option2">
+                <input type="radio" ng-model="$ctrl.addplayer.service" id="option2" value="cybergame" name="player" class="mdl-radio__button" required>
+                <span class="mdl-radio__label">CyberGame</span>
+            </label>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--primary">
+                <i class="material-icons">add</i>
+            </button>
+        </form>
+        <p>{{$ctrl.data.uid}}</p>
+    </div>
+    <div class="stream mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" ng-repeat="stream in $ctrl.playlist">
+        <iframe ng-src="{{stream.path | trusted}}" frameborder="0" autoplay="false" allowfullscreen="true" scrolling="no" height="378"></iframe>
+    </div>
+</div>
+

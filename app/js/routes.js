@@ -20,13 +20,21 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
                 data:getPostDetails
             }
         })
+        .state('main.playlist',{
+            component:'playlist',
+            url:'/playlist',
+            // resolve:{
+            //     data:getPlaylist
+            // }
+        });
 
 
-   $urlRouterProvider.otherwise('/blog')     
+   $urlRouterProvider.otherwise('/playlist')     
 }
 
 getPostDetails.$inject=['dataservice', '$transition$']
 function getPostDetails(dataservice, $transition$){
     return dataservice.getPostDetails($transition$.params().postId)
-}            
-})()
+}
+
+})();

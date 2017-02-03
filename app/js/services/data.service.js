@@ -3,8 +3,9 @@ angular.module('app')
     .service('dataservice', dataservice)
 
 
-dataservice.$inject=['$firebaseObject','$firebaseArray']
+dataservice.$inject=['$firebaseObject','$firebaseArray'];
 function dataservice($firebaseObject, $firebaseArray){
+    var profileRef = firebase.database().ref().child('profiles');
     var postsRef = firebase.database().ref().child('posts');
     var exRef = firebase.database().ref().child('posts').child('post1');
     var self = this;
@@ -14,9 +15,17 @@ function dataservice($firebaseObject, $firebaseArray){
     self.getOtherPosts=getOtherPosts;
     self.getExPost=getExPost;
     self.getPostDetails=getPostDetails;
+    self.addToPlaylist=addToPlaylist;
+    self.getPlaylist=getPlaylist;
 
+    function addToPlaylist(id, data) {
+        return $firebaseArray(profileRef.child(id)).$add(data);
+    }
 
-
+    function getPlaylist(id) {
+        return $firebaseArray(profileRef.child(id));
+    }
+    
     function getPostDetails(id){
         return $firebaseObject(postsRef.child(id));
     }
@@ -34,4 +43,4 @@ function dataservice($firebaseObject, $firebaseArray){
     }
 
 }        
-})()
+})();

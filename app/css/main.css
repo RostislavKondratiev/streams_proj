@@ -40,11 +40,13 @@ dialog::backdrop {
 .header-right {
   margin: auto 10px; }
   .header-right.ng-enter {
+    -webkit-transition: 1s linear all;
     transition: 1s linear all;
     opacity: 0; }
   .header-right.ng-enter-active {
     opacity: 1; }
   .header-right.ng-leave {
+    -webkit-transition: 1s linear all;
     transition: 1s linear all;
     opacity: 1; }
   .header-right.ng-leave-active {
@@ -58,8 +60,10 @@ dialog::backdrop {
   padding: 5px 0;
   width: 100%;
   height: 40px;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .social_desk {
   width: 100%;
@@ -82,11 +86,13 @@ dialog::backdrop {
   background-image: url("../images/twitter.png"); }
 
 .cardswrap {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   margin-top: 50px; }
 
 .devider.ng-enter {
+  -webkit-transition: .5s linear all;
   transition: .5s linear all;
   opacity: 0; }
 
@@ -94,23 +100,30 @@ dialog::backdrop {
   opacity: 1; }
 
 .cardblock {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   margin-bottom: 30px; }
   .cardblock.ng-enter {
+    -webkit-transition: .5s linear all;
     transition: .5s linear all;
     opacity: 0; }
   .cardblock.ng-enter-active {
     opacity: 1; }
   .cardblock.ng-leave {
+    -webkit-transition: .5s linear all;
     transition: .5s linear all;
     opacity: 1; }
   .cardblock.ng-leave-active {
     opacity: 0; }
 
 .cardblock__actions {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
 
@@ -139,3 +152,6 @@ dialog::backdrop {
   background-image: url(../images/devider.jpg);
   background-size: cover;
   background-position: center center; }
+
+.stream {
+  padding: 0 40px; }

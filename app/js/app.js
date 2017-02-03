@@ -19,7 +19,8 @@
                 componentHandler.upgradeAllRegistered();
             })
         })
-    })
+    });
+    
 
     var config = {
         apiKey: "AIzaSyDfuicTxzKZS46anMXs5ypa1nOGN4OgyRo",
