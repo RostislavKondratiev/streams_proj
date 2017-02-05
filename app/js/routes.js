@@ -23,13 +23,10 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
         .state('main.playlist',{
             component:'playlist',
             url:'/playlist',
-            // resolve:{
-            //     data:getPlaylist
-            // }
         });
 
 
-   $urlRouterProvider.otherwise('/playlist')     
+   $urlRouterProvider.otherwise('/blog')     
 }
 
 getPostDetails.$inject=['dataservice', '$transition$']

@@ -7,6 +7,7 @@ dataservice.$inject=['$firebaseObject','$firebaseArray'];
 function dataservice($firebaseObject, $firebaseArray){
     var profileRef = firebase.database().ref().child('profiles');
     var postsRef = firebase.database().ref().child('posts');
+    var messagesRef = firebase.database().ref().child('messages');
     var exRef = firebase.database().ref().child('posts').child('post1');
     var self = this;
 
@@ -17,6 +18,22 @@ function dataservice($firebaseObject, $firebaseArray){
     self.getPostDetails=getPostDetails;
     self.addToPlaylist=addToPlaylist;
     self.getPlaylist=getPlaylist;
+    self.deleteFromPlaylist=deleteFromPlaylist;
+    self.getMessages=getMessages;
+    self.sendMessage=sendMessage;
+
+
+    function sendMessage(item){
+        return $firebaseArray(messagesRef).$add(item);
+    }
+
+    function getMessages(){
+        return $firebaseArray(messagesRef);
+    }
+
+    function deleteFromPlaylist(id, item){
+        return $firebaseObject(profileRef.child(id).child(item)).$remove();
+    }
 
     function addToPlaylist(id, data) {
         return $firebaseArray(profileRef.child(id)).$add(data);

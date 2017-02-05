@@ -3,11 +3,12 @@ angular.module('app')
     .controller('mainCtrl',mainCtrl);
 
 
-mainCtrl.$inject=['$firebaseAuth','toastr','dataservice'];
-function mainCtrl($firebaseAuth, toastr, dataservice){
+mainCtrl.$inject=['$firebaseAuth','toastr','dataservice','$state'];
+function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     var auth = $firebaseAuth();
     
     var self = this;
+    self.chatState=false;
 
     self.data={};
     self.showdialog=showdialog;
@@ -16,13 +17,13 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
     self.loginGoogle=loginGoogle;
     self.register=register;
     self.logout=logout;
+    self.openChat=openChat;
    
 
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
         dataservice.userData=authData;
         console.log(dataservice.userData);
-        // if(authData) createProfile(dataservice.userData.uid.toString());
     });
 
     function showdialog() {
@@ -42,11 +43,11 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
     }
 
     function login(email, pass){
-        
         auth.$signInWithEmailAndPassword(email, pass).then(successHandler,errorHandler)
     }
 
     function loginGoogle(){
+        var state=$state.current.name;
         auth.$signInWithPopup('google').then(successHandler,errorHandler)
     }
 
@@ -55,10 +56,10 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
         auth.$signOut();
     }
 
-    // function createProfile(id) {
-    //     dataservice.getProfile(id)
-    // }
-    
+    function openChat(){
+        self.chatState=self.chatState===false ? true : false;
+    }
+  
     function successHandler(firebaseUser){
         closedialog();
         console.log(firebaseUser);
@@ -68,5 +69,6 @@ function mainCtrl($firebaseAuth, toastr, dataservice){
     function errorHandler(error){
         toastr.error(error.message,'Error');
     }
+
 }
 })();

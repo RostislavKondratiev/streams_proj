@@ -1,0 +1,11 @@
+(function(){
+angular.module('app')
+    .directive('chat',function(){
+        return{
+            restrict:'E',
+            controller:'chatCtrl',
+            templateUrl:'js/components/chat/chat.page.html',
+            controllerAs:'$ctrl'
+        }
+    })    
+})()

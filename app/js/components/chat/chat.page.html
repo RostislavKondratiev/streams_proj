@@ -1,0 +1,17 @@
+<div class='chat'>
+    <div class="chat__header">
+
+    </div>
+    <div class="chat__body">
+        <div class="chat__message" ng-repeat="message in $ctrl.messages">
+            <span>{{message.author}}</span>
+            <p>{{message.text}}</p>
+    </div>
+    <div class="chat__input">
+        <textarea rows='4' ng-model="$ctrl.mess.text"></textarea>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored chat__send" ng-click="$ctrl.sendMessage()">
+            Send
+        </button>
+    </div>
+      
+</div>
