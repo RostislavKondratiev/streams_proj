@@ -2,14 +2,22 @@
 angular.module('app')
     .controller('chatCtrl', chatCtrl);
 
-chatCtrl.$inject=['dataservice'];
-function chatCtrl(dataservice){
+chatCtrl.$inject=['$scope','dataservice','$firebaseAuth'];
+function chatCtrl($scope, dataservice, $firebaseAuth){
+    var auth=$firebaseAuth();
     var self=this;
-    console.log(this);
+
+    auth.$onAuthStateChanged(function(authData){
+        self.user=authData;
+    });
 
     self.messages=dataservice.getMessages();
-
+    self.closeChat=closeChat
     self.sendMessage=sendMessage
+
+    function closeChat(){
+        $scope.$parent.$ctrl.openChat();
+    }
 
     function sendMessage(){
         if(dataservice.userData != null){

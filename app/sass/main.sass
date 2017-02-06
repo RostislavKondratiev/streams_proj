@@ -129,19 +129,17 @@ dialog::backdrop
     margin: 0 auto
 
 .devider
-    // display: flex
     margin: 0 auto
     height: 200px
-    // width: 95%
     background-image: url(../images/devider.jpg)    
     background-size: cover
     background-position: center center
 
-//.addplayer
-//    border: 1px solid purple
+.addchanel
+    width: 165px
 
 .stream
-    padding: 0 20px
+    padding: 0 25px
 
 .stream__controll
     display: flex
@@ -157,8 +155,7 @@ dialog::backdrop
     cursor: pointer
 
 .stream__frame
-    height: 100%
-    height: 370px
+    height: 390px
 
 .chat
     display: flex
@@ -166,44 +163,64 @@ dialog::backdrop
     background-color: #4b4444
     border: 3px solid blue
     color: white
-    height: 500px
+    height: 525px
     width: 200px
     position: absolute
-    bottom: 70px
-    right: 20px
+    overflow: hidden
+    bottom: 0
+    right: 17px
     z-index: 9999
 
 .chat__button
     position: absolute
     bottom: 5px
     right: 20px
-    z-index: 9999
+    z-index: 100
 
 .chat__input
     display: flex
     margin-top: auto
     height: 50px
+    width: 100%
     textarea
         border: none
         outline: none
+        padding: 5px
+        width: 130px
+        height: 100%
 
 .chat__send
     height: 100%
+    width: 60px
 
 .chat__header
     height: 30px
+    display: flex
     background-color: purple
 
 .chat__body
     display: flex
     flex-direction: column
     height: 100%
+    margin-left: -17px
+    right: -17px
     overflow-y: scroll
+    position: relative
 
 .chat__message
+    word-wrap: break-word
     border-bottom: 1px solid white
-    margin: 5px 2px
+    margin: 6px 2px
     p
         margin: auto 0
 
-                       
+.chat__message_all
+    color: black
+
+.chat__message_mine
+    color: pink
+
+.chat__header__hide
+    margin: auto 0
+    margin-left: auto
+    cursor: pointer       

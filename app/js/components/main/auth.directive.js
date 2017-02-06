@@ -11,6 +11,10 @@ angular.module('app')
                     }
                     angular.element(window).bind('click', function(event) {
                     if (event.target == dialog) {
+                        console.log(scope.$ctrl.data);
+                        for(key in scope.$ctrl.data){
+                            scope.$ctrl.data[key]=undefined;
+                        }
                         dialog.close();
                     }
                 })

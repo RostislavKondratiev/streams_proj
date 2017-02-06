@@ -1,4 +1,4 @@
-    angular.module('app',['firebase','ui.router','ngAnimate', 'toastr'])
+    angular.module('app',['firebase','ui.router','ngAnimate', 'toastr','luegg.directives'])
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {
         autoDismiss: false,
@@ -12,14 +12,18 @@
         });
     });
 
-    angular.module('app')
+
+(function() {
+angular.module('app')
         .run(function ($rootScope, $timeout) {
             $rootScope.$on('$viewContentLoaded', function(){
             $timeout(function() {
                 componentHandler.upgradeAllRegistered();
             })
         })
-    });
+    });    
+}());
+    
     
 
     var config = {

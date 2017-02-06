@@ -1,7 +1,7 @@
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col addplayer">
-        <form ng-submit="$ctrl.addPlayerHandler()">
-            <div class="mdl-textfield mdl-js-textfield">
+    <div class="mdl-grid mdl-cell mdl-cell--12-col addplayer">
+        <form class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet" ng-submit="$ctrl.addPlayerHandler()">
+            <div class="mdl-textfield mdl-js-textfield addchanel">
                 <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" id="sample1" required>
                 <label class="mdl-textfield__label" for="sample1">Enter Channels Name</label>
             </div>

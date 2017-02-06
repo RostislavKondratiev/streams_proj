@@ -33,17 +33,24 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     function closedialog() {
         document.querySelector('main.mdl-layout__content').style.overflowY = '';
         dialog.close();
+        for(key in $ctrl.data){
+            $ctrl.data[key]='';
+        }
         document.querySelector('main.mdl-layout__content').style.overflowY = 'auto';
     }
 
     function register(email, pass, conf){
-        if(pass===conf){
-            auth.$createUserWithEmailAndPassword(email, pass).then(successHandler, errorHandler)
-        } else alert("Wrong Password");
+        if(email && pass && conf != undefined){
+            if(pass===conf){
+                auth.$createUserWithEmailAndPassword(email, pass).then(successHandler, errorHandler)
+            } else alert("Wrong Password");
+        }else alert("Fill the fields");
     }
 
     function login(email, pass){
-        auth.$signInWithEmailAndPassword(email, pass).then(successHandler,errorHandler)
+        if(email && pass != undefined){
+            auth.$signInWithEmailAndPassword(email, pass).then(successHandler,errorHandler)
+        } else alert("Fill the fields");
     }
 
     function loginGoogle(){

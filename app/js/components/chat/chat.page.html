@@ -1,17 +1,17 @@
 <div class='chat'>
     <div class="chat__header">
-
+        <i class="chat__header__hide material-icons" ng-click="$ctrl.closeChat()">keyboard_arrow_down</i>
     </div>
-    <div class="chat__body">
+    <div class="chat__body" scroll-glue>
         <div class="chat__message" ng-repeat="message in $ctrl.messages">
-            <span>{{message.author}}</span>
-            <p>{{message.text}}</p>
-    </div>
+            <span class="chat__message_all" ng-class='{ "chat__message_mine" : message.authorUid == $ctrl.user.uid }'>{{message.author}}</span>
+            <p class="mdl-typography--text-left">{{message.text}}</p>
+        </div>
+    </div>  
     <div class="chat__input">
         <textarea rows='4' ng-model="$ctrl.mess.text"></textarea>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored chat__send" ng-click="$ctrl.sendMessage()">
             Send
         </button>
     </div>
-      
 </div>
