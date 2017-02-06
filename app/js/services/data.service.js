@@ -21,7 +21,12 @@ function dataservice($firebaseObject, $firebaseArray){
     self.deleteFromPlaylist=deleteFromPlaylist;
     self.getMessages=getMessages;
     self.sendMessage=sendMessage;
+    self.addPost=addPost;
 
+
+    function addPost(item){
+        return $firebaseArray(postsRef).$add(item);
+    }
 
     function sendMessage(item){
         return $firebaseArray(messagesRef).$add(item);

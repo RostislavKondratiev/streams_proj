@@ -1,11 +1,11 @@
-    angular.module('app',['firebase','ui.router','ngAnimate', 'toastr','luegg.directives'])
+    angular.module('app',['firebase','ui.router','ngAnimate', 'toastr','luegg.directives','angularTrix','ngSanitize','twitchy'])
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {
         autoDismiss: false,
         containerId: 'toast-container',
         maxOpened: 0,    
         newestOnTop: true,
-        positionClass: 'toast-bottom-right',
+        positionClass: 'toast-bottom-left',
         preventDuplicates: false,
         preventOpenDuplicates: false,
         target: 'body'

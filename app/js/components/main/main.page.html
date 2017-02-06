@@ -24,7 +24,7 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' ui-sref='main.blog' >Blog</a>
                 <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' ui-sref='main.playlist'>Playlist</a>
-                <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' href="">Link</a>
+                <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' ui-sref='main.createpost'>Create</a>
                 <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' href="">Link</a>
                 <a class="mdl-navigation__link" ui-sref-active='mdl-navigation__link--current' href="">Link</a>
             </nav>
@@ -38,9 +38,7 @@
 
     <auth-dialog></auth-dialog>
 
-    <chat ng-if='$ctrl.chatState'>
-
-    </chat>
+    <chat ng-if='$ctrl.chatState'></chat>
 
     <button ng-click="$ctrl.openChat()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent chat__button">
         chat

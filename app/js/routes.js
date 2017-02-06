@@ -23,6 +23,10 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
         .state('main.playlist',{
             component:'playlist',
             url:'/playlist',
+        })
+        .state('main.createpost',{
+            component:'createPost',
+            url:'/create'
         });
 
 

@@ -6,9 +6,10 @@
             </h1>
         </div>
         <img class="details__image" ng-src="{{$ctrl.data.image}}" alt="">
-        <div class="mdl-card__supporting-text">
-            {{$ctrl.data.text}}
+        <div class="details__content" ng-bind-html="$ctrl.data.content">
+            
         </div>
+        
         <div class="mdl-card__menu">
             <a ui-sref='main.blog'><i class="material-icons">navigate_before</i></a>
         </div>

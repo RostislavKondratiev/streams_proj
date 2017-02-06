@@ -2,6 +2,7 @@
     margin: 0
     padding: 0
     border: 0
+    font-family: Roboto, sans-serif
 
 body
     background-color: #e6e6e6
@@ -59,6 +60,9 @@ dialog::backdrop
     height: 40px
     justify-content: center
 
+.icon
+    width: 2.18em !important
+
 .social_desk
     width: 100%
     text-align: center
@@ -69,7 +73,6 @@ dialog::backdrop
     height: 30px
     background-repeat: no-repeat
     background-size: cover
-
 
 .social_logo_git
     background-image: url("../images/github.png")
@@ -128,6 +131,9 @@ dialog::backdrop
     height: 700px
     margin: 0 auto
 
+.details__content
+    padding: 25px
+
 .devider
     margin: 0 auto
     height: 200px
@@ -160,11 +166,11 @@ dialog::backdrop
 .chat
     display: flex
     flex-direction: column
-    background-color: #4b4444
-    border: 3px solid blue
-    color: white
+    background-color: #cecece
+    border: 3px solid black
+    color: black
     height: 525px
-    width: 200px
+    width: 250px
     position: absolute
     overflow: hidden
     bottom: 0
@@ -186,7 +192,7 @@ dialog::backdrop
         border: none
         outline: none
         padding: 5px
-        width: 130px
+        width: 190px
         height: 100%
 
 .chat__send
@@ -197,6 +203,7 @@ dialog::backdrop
     height: 30px
     display: flex
     background-color: purple
+    background-image: linear-gradient(120deg,#cecece,#fbfbfb)
 
 .chat__body
     display: flex
@@ -209,18 +216,56 @@ dialog::backdrop
 
 .chat__message
     word-wrap: break-word
-    border-bottom: 1px solid white
+    border-bottom: 1px solid #a1a1a1
     margin: 6px 2px
+    padding: 5px
     p
         margin: auto 0
+        i
+            display: inline-block
 
 .chat__message_all
     color: black
 
 .chat__message_mine
-    color: pink
+    color: rgb(255,64,129) 
 
 .chat__header__hide
     margin: auto 0
     margin-left: auto
-    cursor: pointer       
+    cursor: pointer
+    color: rgb(255,64,129)       
+
+.button_row
+    justify-content: flex-start !important
+
+.createpost
+    width: 80%
+    margin: 40px auto
+    padding: 20px
+    background-color: white
+
+.createpost__buttongrp
+    display: flex
+    justify-content: center
+    margin: 20px 0
+
+.createpost__contentinput
+    display: flex
+
+.createpost__prevtext
+    min-height: 310px  
+    margin-top: 15px    
+    width: 90%
+    border: 1px solid #cccccc
+
+.trix-editorwrap
+    width: 70%
+    margin-right: 20px
+
+.trix-content
+    min-height: 300px    
+
+.createpost__button
+    text-align: center
+    margin: 0 10px    

@@ -15,6 +15,7 @@ function chatCtrl($scope, dataservice, $firebaseAuth){
     self.closeChat=closeChat
     self.sendMessage=sendMessage
 
+
     function closeChat(){
         $scope.$parent.$ctrl.openChat();
     }

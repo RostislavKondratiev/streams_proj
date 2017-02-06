@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+  font-family: Roboto, sans-serif; }
 
 body {
   background-color: #e6e6e6; }
@@ -64,6 +65,9 @@ dialog::backdrop {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
+
+.icon {
+  width: 2.18em !important; }
 
 .social_desk {
   width: 100%;
@@ -146,6 +150,9 @@ dialog::backdrop {
   height: 700px;
   margin: 0 auto; }
 
+.details__content {
+  padding: 25px; }
+
 .devider {
   margin: 0 auto;
   height: 200px;
@@ -189,11 +196,11 @@ dialog::backdrop {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #4b4444;
-  border: 3px solid blue;
-  color: white;
+  background-color: #cecece;
+  border: 3px solid black;
+  color: black;
   height: 525px;
-  width: 200px;
+  width: 250px;
   position: absolute;
   overflow: hidden;
   bottom: 0;
@@ -218,7 +225,7 @@ dialog::backdrop {
     border: none;
     outline: none;
     padding: 5px;
-    width: 130px;
+    width: 190px;
     height: 100%; }
 
 .chat__send {
@@ -231,7 +238,9 @@ dialog::backdrop {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: purple; }
+  background-color: purple;
+  background-image: -webkit-linear-gradient(330deg, #cecece, #fbfbfb);
+  background-image: linear-gradient(120deg, #cecece, #fbfbfb); }
 
 .chat__body {
   display: -webkit-box;
@@ -251,18 +260,68 @@ dialog::backdrop {
 
 .chat__message {
   word-wrap: break-word;
-  border-bottom: 1px solid white;
-  margin: 6px 2px; }
+  border-bottom: 1px solid #a1a1a1;
+  margin: 6px 2px;
+  padding: 5px; }
   .chat__message p {
     margin: auto 0; }
+    .chat__message p i {
+      display: inline-block; }
 
 .chat__message_all {
   color: black; }
 
 .chat__message_mine {
-  color: pink; }
+  color: #ff4081; }
 
 .chat__header__hide {
   margin: auto 0;
   margin-left: auto;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #ff4081; }
+
+.button_row {
+  -webkit-box-pack: start !important;
+  -webkit-justify-content: flex-start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important; }
+
+.createpost {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white; }
+
+.createpost__buttongrp {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px 0; }
+
+.createpost__contentinput {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.createpost__prevtext {
+  min-height: 310px;
+  margin-top: 15px;
+  width: 90%;
+  border: 1px solid #cccccc; }
+
+.trix-editorwrap {
+  width: 70%;
+  margin-right: 20px; }
+
+.trix-content {
+  min-height: 300px; }
+
+.createpost__button {
+  text-align: center;
+  margin: 0 10px; }
