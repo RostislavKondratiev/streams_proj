@@ -1,26 +1,24 @@
 <div class="mdl-grid">
-    <form ng-submit="$ctrl.addPost()" class="mdl-shadow--4dp createpost">
+    <form name='postform' ng-submit="$ctrl.addPost()" class="mdl-shadow--4dp createpost">
          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" ng-model="$ctrl.data.title" type="text" id="title">
-            <label class="mdl-textfield__label" for="title">Title</label>
+            <input class="mdl-textfield__input" ng-model="$ctrl.data.title" type="text" id="title" required placeholder="Title">
         </div>
          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" ng-model="$ctrl.data.image" type="text" id="image">
-            <label class="mdl-textfield__label" for="image">Image Url</label>
+            <input class="mdl-textfield__input" ng-model="$ctrl.data.image" type="url" id="image" required placeholder="Image URL">
         </div>
         <div class="createpost__contentinput">
             <div class="trix-editorwrap"> 
                 <trix-editor class="trix-content" ng-model="$ctrl.data.content" ng-model-options="{ updateOn: 'default'}" spellcheck="false" class="trix-content" angular-trix></trix-editor>
             </div>
             <div class="mdl-textfield mdl-js-textfield ">
-                <textarea class="createpost__prevtext" ng-model="$ctrl.data.prevtext" type="text" placeholder="Enter Preview Info" ></textarea>
+                <textarea class="createpost__prevtext" ng-model="$ctrl.data.prevtext" type="text" placeholder="Enter Preview Info (150 letters max)" required maxlength="150"></textarea>
             </div>
         </div>
         <div class="createpost__buttongrp">
             <button type="submit" class="createpost__button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                 Add Record
             </button>
-            <button class="createpost__button mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+            <button type="button" class="createpost__button mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="$ctrl.goBack()">
                 Cancel
             </button>
         </div>

@@ -84,7 +84,7 @@ dialog::backdrop
     background-image: url("../images/twitter.png")                  
 
 .cardswrap
-    justify-content: space-around
+    // justify-content: space-around
     margin-top: 50px
    
 .devider
@@ -103,17 +103,16 @@ dialog::backdrop
         opacity: 0
     &.ng-enter-active
         opacity: 1    
-    &.ng-leave
-        transition: .5s linear all
-        opacity: 1
-    &.ng-leave-active
-        opacity: 0 
 
 .cardblock__actions
     display: flex
 
 .cardblock__actions__elem
     margin-left: auto
+
+.cardblock__actions__delete
+    margin-top: 6px
+    cursor: pointer    
 
 .material-icons_color
     color: #e6e6e6
@@ -219,6 +218,14 @@ dialog::backdrop
     border-bottom: 1px solid #a1a1a1
     margin: 6px 2px
     padding: 5px
+    overflow: none
+    &.ng-enter
+        transition: 0.5s linear all
+        opacity: 0
+        transform: translateX(-100%)
+    &.ng-enter-active
+        transform: translateX(0)
+        opacity: 1 
     p
         margin: auto 0
         i

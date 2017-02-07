@@ -2,8 +2,7 @@
     <div class="mdl-grid mdl-cell mdl-cell--12-col addplayer">
         <form class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet" ng-submit="$ctrl.addPlayerHandler()">
             <div class="mdl-textfield mdl-js-textfield addchanel">
-                <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" id="sample1" required>
-                <label class="mdl-textfield__label" for="sample1">Enter Channels Name</label>
+                <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" id="sample1" required placeholder="Enter Channels Name">
             </div>
             <label class="mdl-radio mdl-js-radio" for="option1">
                 <input type="radio" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.service" id="option1" value="twitch" name="player" class="mdl-radio__button" checked required>

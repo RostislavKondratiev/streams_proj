@@ -6,7 +6,11 @@ createCtrl.$inject=['dataservice','toastr','$state']
 function createCtrl(dataservice,toastr,$state){
     var self=this;
     self.addPost=addPost;
+    self.goBack=goBack;
 
+    
+    console.log(this);
+    
 
     function addPost(){
         if(!self.data.content==""){
@@ -16,8 +20,13 @@ function createCtrl(dataservice,toastr,$state){
             toastr.success("Post with name "+self.data.title+" successfully added", "success")
             $state.go('main.blog');
             })
-        } else alert('Write Content')  
+        } else toastr.warning('Fill the content field','Warning');  
+    }
+
+    function goBack(){
+        $state.go('main.blog');
+    }  
+       
 }
        
-}        
 })()

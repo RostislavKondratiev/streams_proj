@@ -2,34 +2,30 @@
 angular.module('app')
     .controller('blogCtrl', blogCtrl)
 
-blogCtrl.$inject=['dataservice','$window']
-function blogCtrl(dataservice, $window){
+blogCtrl.$inject=['$firebaseAuth','dataservice']
+function blogCtrl($firebaseAuth, dataservice){
     var self=this;
+    var auth = $firebaseAuth();
     self.devider=false;
+    self.user={};
 
-    self.otherPosts=dataservice.getOtherPosts();
-    self.otherPosts.$loaded(function(){
-        self.devider=true;
-    })
     self.posts=dataservice.getFirstPosts();
     self.ex=dataservice.getExPost();
-    self.openDialog=openDialog;
-    self.closeDialog=closeDialog;
+    self.deletePost=deletePost;
 
-    console.log(self.ex);
+    auth.$onAuthStateChanged(function(authData){
+        self.user=authData;
+    });
+
+    self.posts.$loaded(function(){
+        self.count=(-(self.posts.length-4));
+        self.devider=true;
+    })
+
     console.log(self.posts);
 
-
-    function openDialog(id){
-        self.details=dataservice.getPostDetails(id);
-        detail.showModal();
-        $window.scrollTo('5','0')
-    }
-
-    function closeDialog() {
-        // document.querySelector('main.mdl-layout__content').style.overflowY = '';
-        detail.close();
-        // document.querySelector('main.mdl-layout__content').style.overflowY = 'auto';
+    function deletePost(item){
+        dataservice.removePost(item);
     }
 }        
 })()

@@ -9,10 +9,10 @@
                 </span>
                 <div class="mdl-layout-spacer"></div>
                 <h6 class="header-right">{{$ctrl.user.email}}</h6>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored header-right" ng-cloak ng-if="!$ctrl.user" ng-click="$ctrl.showdialog()">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored header-right" ng-cloak ng-if="!$ctrl.user.uid" ng-click="$ctrl.showdialog()">
                     Sign In
                 </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent header-right" ng-cloak ng-if="$ctrl.user" ng-click="$ctrl.logout()">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent header-right" ng-cloak ng-if="$ctrl.user.uid" ng-click="$ctrl.logout()">
                     Sign Out
                 </button>
             </div>

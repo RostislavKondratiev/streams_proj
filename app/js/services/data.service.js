@@ -13,7 +13,7 @@ function dataservice($firebaseObject, $firebaseArray){
 
 
     self.getFirstPosts=getFirstPosts;
-    self.getOtherPosts=getOtherPosts;
+    // self.getOtherPosts=getOtherPosts;
     self.getExPost=getExPost;
     self.getPostDetails=getPostDetails;
     self.addToPlaylist=addToPlaylist;
@@ -22,7 +22,13 @@ function dataservice($firebaseObject, $firebaseArray){
     self.getMessages=getMessages;
     self.sendMessage=sendMessage;
     self.addPost=addPost;
+    self.removePost=removePost;
 
+
+
+    function removePost(item){
+        return $firebaseObject(postsRef.child(item)).$remove();
+    }
 
     function addPost(item){
         return $firebaseArray(postsRef).$add(item);
@@ -53,12 +59,12 @@ function dataservice($firebaseObject, $firebaseArray){
     }
 
     function getFirstPosts(){
-        return $firebaseArray(postsRef.limitToFirst(4))
+        return $firebaseArray(postsRef)
     }
 
-    function getOtherPosts(){
-        return $firebaseArray(postsRef.limitToLast(8))
-    }
+    // function getOtherPosts(){
+    //     return $firebaseArray(postsRef.limitToFirst(8))
+    // }
 
     function getExPost(){
         return $firebaseObject(exRef);

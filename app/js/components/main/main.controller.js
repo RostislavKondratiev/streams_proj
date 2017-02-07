@@ -18,7 +18,8 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     self.register=register;
     self.logout=logout;
     self.openChat=openChat;
-   
+    
+    console.log('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero iste cumque laboriosam tempore hic ullam sapiente, voluptatum et odio, praesentium.'.length)
 
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
@@ -33,8 +34,10 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     function closedialog() {
         document.querySelector('main.mdl-layout__content').style.overflowY = '';
         dialog.close();
-        for(key in $ctrl.data){
-            $ctrl.data[key]='';
+        if(self.data){
+            for(key in self.data){
+            self.data[key]='';
+            }
         }
         document.querySelector('main.mdl-layout__content').style.overflowY = 'auto';
     }
