@@ -7,7 +7,7 @@ function blogCtrl($firebaseAuth, dataservice){
     var self=this;
     var auth = $firebaseAuth();
     self.devider=false;
-    self.user={};
+    self.user=false;
 
     self.posts=dataservice.getFirstPosts();
     self.ex=dataservice.getExPost();
@@ -25,7 +25,10 @@ function blogCtrl($firebaseAuth, dataservice){
     console.log(self.posts);
 
     function deletePost(item){
-        dataservice.removePost(item);
+        var answer=confirm("Are You Shure?")
+        if(answer){
+            dataservice.removePost(item);
+        }
     }
 }        
 })()

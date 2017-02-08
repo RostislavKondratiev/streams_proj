@@ -17,7 +17,8 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
             component:'postdetails',
             url:'/post/{postId}',
             resolve:{
-                data:getPostDetails
+                data:getPostDetails,
+                comments:getComments
             }
         })
         .state('main.playlist',{
@@ -31,6 +32,11 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
 
 
    $urlRouterProvider.otherwise('/blog')     
+}
+
+getComments.$inject=['dataservice','$transition$']
+function getComments(dataservice, $transition$){
+    return dataservice.getComments($transition$.params().postId)
 }
 
 getPostDetails.$inject=['dataservice', '$transition$']

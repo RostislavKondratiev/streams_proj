@@ -41,14 +41,14 @@ dialog::backdrop {
 .header-right {
   margin: auto 10px; }
   .header-right.ng-enter {
-    -webkit-transition: 1s linear all;
-    transition: 1s linear all;
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
     opacity: 0; }
   .header-right.ng-enter-active {
     opacity: 1; }
   .header-right.ng-leave {
-    -webkit-transition: 1s linear all;
-    transition: 1s linear all;
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
     opacity: 1; }
   .header-right.ng-leave-active {
     opacity: 0; }
@@ -91,6 +91,35 @@ dialog::backdrop {
 
 .cardswrap {
   margin-top: 50px; }
+
+.addfield {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(63, 81, 181, 0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .addfield.ng-enter {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    opacity: 0; }
+  .addfield.ng-enter-active {
+    opacity: 1; }
+  .addfield.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    opacity: 1; }
+  .addfield.ng-leave-active {
+    opacity: 0; }
+  .addfield a {
+    margin: auto;
+    color: whitesmoke;
+    text-decoration: none; }
 
 .devider.ng-enter {
   -webkit-transition: .5s linear all;
@@ -147,6 +176,57 @@ dialog::backdrop {
 
 .details__content {
   padding: 25px; }
+
+.details__author {
+  margin-left: auto;
+  margin-right: 5px; }
+
+.details__comment-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px 15px 0;
+  padding: 15px 15px 0; }
+
+.details__comment-input {
+  width: 100%;
+  margin: 20px 20px 5px;
+  font-size: 18px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  overflow: hidden;
+  min-height: 20px; }
+
+.details__send {
+  margin-left: auto;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 15%; }
+
+#details__line {
+  width: 100%;
+  height: 5px;
+  background-color: black; }
+
+.comment {
+  position: relative;
+  width: 100%;
+  margin: 20px 20px 5px;
+  padding: 8px;
+  border-bottom: 1px solid black; }
+
+.comment__author {
+  position: relative;
+  top: -35px; }
+
+.comment__content {
+  position: relative;
+  top: -50px;
+  margin-bottom: -55px;
+  left: -1px; }
 
 .devider {
   margin: 0 auto;

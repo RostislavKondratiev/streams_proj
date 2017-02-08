@@ -9,7 +9,7 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     
     var self = this;
     self.chatState=false;
-
+    self.user=false;
     self.data={};
     self.showdialog=showdialog;
     self.closedialog=closedialog;

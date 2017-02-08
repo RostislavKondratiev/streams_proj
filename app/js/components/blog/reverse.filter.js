@@ -1,9 +1,11 @@
 
 (function() {
 angular.module('app')
-    .filter('reverse', function() {
+    .filter('reverse', reverse)
+
+    function reverse() {
     return function(items) {
         return items.slice().reverse();
-  };
-});
+        }
+    }
 }());

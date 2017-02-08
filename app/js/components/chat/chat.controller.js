@@ -2,8 +2,8 @@
 angular.module('app')
     .controller('chatCtrl', chatCtrl);
 
-chatCtrl.$inject=['$scope','dataservice','$firebaseAuth'];
-function chatCtrl($scope, dataservice, $firebaseAuth){
+chatCtrl.$inject=['$scope','dataservice','$firebaseAuth','toastr'];
+function chatCtrl($scope, dataservice, $firebaseAuth,toastr){
     var auth=$firebaseAuth();
     var self=this;
 
@@ -30,8 +30,8 @@ function chatCtrl($scope, dataservice, $firebaseAuth){
             if(self.mess.text!=''){
                 dataservice.sendMessage(data);
                 self.mess.text='';
-            } else alert('Write message before');
-        } else alert('Authorize Please');
+            } else toastr.warning('Write Some Message','Warning')
+        } else toastr.warning('Authorize Please','Warning')
     }
 }    
 })()

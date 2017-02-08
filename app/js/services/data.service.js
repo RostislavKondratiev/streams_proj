@@ -23,8 +23,18 @@ function dataservice($firebaseObject, $firebaseArray){
     self.sendMessage=sendMessage;
     self.addPost=addPost;
     self.removePost=removePost;
+    self.addComment=addComment;
+    self.getComments=getComments;
 
 
+    function getComments(id){
+        return $firebaseArray(postsRef.child(id).child('comments'));
+    }
+
+
+    function addComment(id,item){
+        return $firebaseArray(postsRef.child(id).child('comments')).$add(item);
+    }   
 
     function removePost(item){
         return $firebaseObject(postsRef.child(item)).$remove();

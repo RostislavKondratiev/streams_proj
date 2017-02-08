@@ -9,7 +9,20 @@
         <div class="details__content" ng-bind-html="$ctrl.data.content">
             
         </div>
-        
+        <small class="details__author">{{$ctrl.data.author}}</small>
+        <div id="details__line"></div>
+        <div class="details__comment-wrap" ng-repeat="comment in $ctrl.comments">
+            <div class="comment">
+                <p class="comment__author">{{comment.author}}</p>
+                <p class="comment__content">{{comment.text}}</p>
+            </div>
+        </div>
+        <div class="details__comment-wrap">
+            <textarea extextarea enter-dir="$ctrl.addComment()" id="comment-input" class="details__comment-input" ng-model="$ctrl.message" ng-disabled="!$ctrl.user"></textarea>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored details__send" ng-disabled="!$ctrl.user" ng-click="$ctrl.addComment()">
+            Send
+        </button>
         <div class="mdl-card__menu">
             <a ui-sref='main.blog'><i class="material-icons">navigate_before</i></a>
         </div>

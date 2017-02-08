@@ -1,4 +1,7 @@
 
+<div class="addfield" ng-if="$ctrl.user">
+    <a ui-sref="main.createpost">Create New Post</a>
+</div>
 <div class="mdl-grid cardswrap">
     <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock" ng-repeat="post in $ctrl.posts | reverse | limitTo : 4">
         <div class="demo-card-wide mdl-card mdl-shadow--2dp cardblock__item">
