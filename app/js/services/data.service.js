@@ -13,7 +13,6 @@ function dataservice($firebaseObject, $firebaseArray){
 
 
     self.getFirstPosts=getFirstPosts;
-    // self.getOtherPosts=getOtherPosts;
     self.getExPost=getExPost;
     self.getPostDetails=getPostDetails;
     self.addToPlaylist=addToPlaylist;
@@ -31,7 +30,6 @@ function dataservice($firebaseObject, $firebaseArray){
         return $firebaseArray(postsRef.child(id).child('comments'));
     }
 
-
     function addComment(id,item){
         return $firebaseArray(postsRef.child(id).child('comments')).$add(item);
     }   
@@ -48,8 +46,11 @@ function dataservice($firebaseObject, $firebaseArray){
         return $firebaseArray(messagesRef).$add(item);
     }
 
-    function getMessages(){
-        return $firebaseArray(messagesRef);
+    function getMessages(state){
+        if(state){
+            return $firebaseArray(messagesRef)
+        }
+        return $firebaseArray(messagesRef.limitToLast(15))
     }
 
     function deleteFromPlaylist(id, item){
@@ -71,10 +72,6 @@ function dataservice($firebaseObject, $firebaseArray){
     function getFirstPosts(){
         return $firebaseArray(postsRef)
     }
-
-    // function getOtherPosts(){
-    //     return $firebaseArray(postsRef.limitToFirst(8))
-    // }
 
     function getExPost(){
         return $firebaseObject(exRef);

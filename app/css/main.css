@@ -314,6 +314,7 @@ dialog::backdrop {
   display: -ms-flexbox;
   display: flex;
   background-color: purple;
+  padding: 1px 5px;
   background-image: -webkit-linear-gradient(330deg, #cecece, #fbfbfb);
   background-image: linear-gradient(120deg, #cecece, #fbfbfb); }
 

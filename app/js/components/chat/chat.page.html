@@ -1,5 +1,9 @@
 <div class='chat'>
     <div class="chat__header">
+         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
+            <input type="checkbox" id="checkbox2" class="mdl-checkbox__input" ng-click="$ctrl.limitMessages()">
+            <span class="mdl-checkbox__label">View All Messages</span>
+         </label>
         <i class="chat__header__hide material-icons" ng-click="$ctrl.closeChat()">keyboard_arrow_down</i>
     </div>
     <div class="chat__body" scroll-glue>
