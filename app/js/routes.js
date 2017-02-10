@@ -7,7 +7,7 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
     $stateProvider
         .state('main',{
             abstract: true,
-            component:'mainComp',
+            component:'mainComp'
         })
         .state('main.blog',{
             component:'blogComp',
@@ -28,11 +28,18 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
         .state('main.createpost',{
             component:'createPost',
             url:'/create'
+            // resolve: reqAuth
         });
 
 
    $urlRouterProvider.otherwise('/blog')     
 }
+
+// reqAuth.$inject=['$firebaseAuth']
+// function reqAuth($firebaseAuth){
+//     var auth=$firebaseAuth();
+//     return $firebaseAuth().$requireSignIn();
+// }
 
 getComments.$inject=['dataservice','$transition$']
 function getComments(dataservice, $transition$){
@@ -44,4 +51,17 @@ function getPostDetails(dataservice, $transition$){
     return dataservice.getPostDetails($transition$.params().postId)
 }
 
+angular.module('app')
+        .run(createRestrict)   
+            
+createRestrict.$inject=['$transitions', 'dataservice'];           
+function createRestrict($transitions, dataservice){
+        $transitions.onStart({to:'main.createpost'},function(trans){
+            var state=trans.router.stateService;
+            console.log(dataservice.userData);
+            if(dataservice.userData==undefined){
+                return state.target('main.blog');
+            }
+        })
+    }
 })();

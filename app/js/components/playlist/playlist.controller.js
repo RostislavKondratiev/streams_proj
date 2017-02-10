@@ -34,6 +34,7 @@ function playlistCtrl(dataservice, toastr,$firebaseAuth,$state){
                 twitchAdress.path = url+channel;
                 twitchAdress.service=self.addplayer.service;
                 dataservice.addToPlaylist(dataservice.userData.uid.toString(),twitchAdress);
+                self.addplayer.site=''
                 toastr.success(channel+' added to playlist','Success');
                 break;
 
@@ -44,6 +45,7 @@ function playlistCtrl(dataservice, toastr,$firebaseAuth,$state){
                 cyberAdress.path = url1+channel+url2;
                 cyberAdress.service=self.addplayer.service;
                 dataservice.addToPlaylist(dataservice.userData.uid.toString(),cyberAdress);
+                self.addplayer.site=''
                 toastr.success(channel+' added to playlist','Success');
                 break;
         }

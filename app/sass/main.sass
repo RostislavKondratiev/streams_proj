@@ -105,7 +105,15 @@ dialog::backdrop
     a
         margin: auto
         color: whitesmoke
-        text-decoration: none        
+        text-decoration: none     
+
+.preloader
+    margin: 35vh auto
+
+.proloader__message
+    text-align: center
+    font-size: 24px
+    margin-top: -30px
 
 .devider
     &.ng-enter
@@ -144,6 +152,10 @@ dialog::backdrop
     text-align: right
     h2
         color: white    
+
+
+.details
+    margin: 0 auto        
 
 .details__image
     width: 100%
@@ -228,7 +240,7 @@ dialog::backdrop
     cursor: pointer
 
 .stream__frame
-    height: 390px
+    height: calc(100vw * 0.26)
 
 .chat
     display: flex
@@ -345,3 +357,5 @@ dialog::backdrop
 .createpost__button
     text-align: center
     margin: 0 10px    
+
+@import "media"

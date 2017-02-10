@@ -2,16 +2,21 @@
 angular.module('app')
     .controller('createCtrl', createCtrl);
 
-createCtrl.$inject=['dataservice','toastr','$state']
-function createCtrl(dataservice,toastr,$state){
+createCtrl.$inject=['dataservice','toastr','$state','$firebaseAuth']
+function createCtrl(dataservice,toastr,$state, $firebaseAuth){
+    var auth = $firebaseAuth();
     var self=this;
+
+    auth.$onAuthStateChanged(function(authData){
+        dataservice.userData=authData;
+        if(dataservice.userData==null){
+            $state.go('main.blog');
+        }
+    });
+
     self.addPost=addPost;
     self.goBack=goBack;
-
     
-    console.log(this);
-    
-
     function addPost(){
         if(!self.data.content==""){
             self.data.author=dataservice.userData.email;
