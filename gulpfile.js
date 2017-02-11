@@ -1,18 +1,13 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     prefix = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync');
-    proxyMiddleware = require('http-proxy-middleware');
+    browserSync = require('browser-sync'),
+    wait = require('gulp-wait');
 
-
-const jsonPlaceholderProxy = proxyMiddleware('/api', {
-    target: 'http://api2.goodgame.ru',
-    changeOrigin: true,
-    logLevel: 'debug'
-});
 
 gulp.task('style',function(){
     return gulp.src('app/sass/*.sass')
+        .pipe(wait(500))
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix({
             browsers:['last 15 versions']
@@ -26,11 +21,7 @@ gulp.task('server', function(){
     browserSync({
         notify: false,
         server:{
-            baseDir: 'app',
-            middleware: function (req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                next();
-            }
+            baseDir: 'app'
         }
     });
 });

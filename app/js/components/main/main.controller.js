@@ -3,8 +3,8 @@ angular.module('app')
     .controller('mainCtrl',mainCtrl);
 
 
-mainCtrl.$inject=['$firebaseAuth','toastr','dataservice','$state'];
-function mainCtrl($firebaseAuth, toastr, dataservice, $state){
+mainCtrl.$inject=['$firebaseAuth','toastr','dataservice','$state','$scope'];
+function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
     var auth = $firebaseAuth();
     
     var self = this;
@@ -18,9 +18,9 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state){
     self.register=register;
     self.logout=logout;
     self.openChat=openChat;
-    
-    console.log('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero iste cumque laboriosam tempore hic ullam sapiente, voluptatum et odio, praesentium.'.length)
 
+    console.log($scope)
+    
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
         dataservice.userData=authData;

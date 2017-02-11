@@ -6,7 +6,7 @@
     <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='!$ctrl.devider'>
         <p class="proloader__message">Loading...</p>
     </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock" ng-repeat="post in $ctrl.posts | reverse | limitTo : 4">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock" ng-show='$ctrl.devider' ng-repeat="post in $ctrl.posts | reverse | limitTo : 4">
         <div class="demo-card-wide mdl-card mdl-shadow--2dp cardblock__item">
             <div class="mdl-card__title cardtitle" ng-style="{'background-image':'url({{post.image}})'}">
                 <h2 class="mdl-card__title-text">{{post.title}}</h2>

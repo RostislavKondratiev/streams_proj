@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="details__comment-wrap">
-            <textarea extextarea enter-dir="$ctrl.addComment()" id="comment-input" class="details__comment-input" ng-model="$ctrl.message" ng-disabled="!$ctrl.user"></textarea>
+            <textarea extextarea enter-dir="$ctrl.addComment()" id="comment-input" class="details__comment-input" ng-model="$ctrl.message" ng-disabled="!$ctrl.user" placeholder="{{$ctrl.placeholder()}}"></textarea>
         </div>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored details__send" ng-disabled="!$ctrl.user" ng-click="$ctrl.addComment()">
             Send

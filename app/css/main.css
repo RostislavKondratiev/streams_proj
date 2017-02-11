@@ -90,7 +90,7 @@ dialog::backdrop {
   background-image: url("../images/twitter.png"); }
 
 .cardswrap {
-  margin-top: 50px; }
+  margin-top: 10px; }
 
 .addfield {
   width: 100%;
@@ -107,35 +107,27 @@ dialog::backdrop {
   .addfield.ng-enter {
     -webkit-transition: 0.5s linear all;
     transition: 0.5s linear all;
-    opacity: 0; }
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%); }
   .addfield.ng-enter-active {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1; }
-  .addfield.ng-leave {
-    -webkit-transition: 0.5s linear all;
-    transition: 0.5s linear all;
-    opacity: 1; }
-  .addfield.ng-leave-active {
-    opacity: 0; }
   .addfield a {
     margin: auto;
     color: whitesmoke;
     text-decoration: none; }
 
 .preloader {
-  margin: 35vh auto; }
+  margin: 45vh auto; }
 
 .proloader__message {
   text-align: center;
   font-size: 24px;
   margin-top: -30px; }
-
-.devider.ng-enter {
-  -webkit-transition: .5s linear all;
-  transition: .5s linear all;
-  opacity: 0; }
-
-.devider.ng-enter-active {
-  opacity: 1; }
 
 .cardblock {
   display: -webkit-box;
@@ -144,14 +136,7 @@ dialog::backdrop {
   display: flex;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
-          justify-content: space-around;
-  margin-bottom: 30px; }
-  .cardblock.ng-enter {
-    -webkit-transition: .5s linear all;
-    transition: .5s linear all;
-    opacity: 0; }
-  .cardblock.ng-enter-active {
-    opacity: 1; }
+          justify-content: space-around; }
 
 .cardblock__actions {
   display: -webkit-box;
@@ -182,7 +167,8 @@ dialog::backdrop {
 
 .details__image {
   width: 100%;
-  height: 700px;
+  height: -webkit-calc(100vw * 0.5);
+  height: calc(100vw * 0.5);
   margin: 0 auto; }
 
 .details__content {
@@ -240,17 +226,23 @@ dialog::backdrop {
   left: -1px; }
 
 .devider {
-  margin: 0 auto;
+  margin: 20px auto;
   height: 200px;
   background-image: url(../images/devider.jpg);
   background-size: cover;
   background-position: center center; }
+  .devider.ng-enter {
+    -webkit-transition: .5s linear all;
+    transition: .5s linear all;
+    opacity: 0; }
+  .devider.ng-enter-active {
+    opacity: 1; }
 
 .addchanel {
   width: 165px; }
 
 .stream {
-  padding: 0 25px; }
+  padding: 0 5px; }
 
 .stream__controll {
   display: -webkit-box;
@@ -270,8 +262,8 @@ dialog::backdrop {
   cursor: pointer; }
 
 .stream__frame {
-  height: -webkit-calc(100vw * 0.26);
-  height: calc(100vw * 0.26); }
+  height: -webkit-calc(100vw * 0.27);
+  height: calc(100vw * 0.27); }
 
 .chat {
   display: -webkit-box;
@@ -429,5 +421,10 @@ dialog::backdrop {
 
 @media only screen and (max-width: 840px) {
   .stream__frame {
-    height: -webkit-calc(100vw * 0.49);
-    height: calc(100vw * 0.49); } }
+    height: -webkit-calc(100vw * 0.52) !important;
+    height: calc(100vw * 0.52) !important; }
+  .details__image {
+    height: -webkit-calc(100vw * 0.7);
+    height: calc(100vw * 0.7); }
+  .logo-text {
+    display: none; } }

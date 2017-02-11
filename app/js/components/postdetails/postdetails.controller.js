@@ -7,14 +7,22 @@ postDetailsCtrl.$inject=['$firebaseAuth','dataservice','toastr']
 function postDetailsCtrl($firebaseAuth, dataservice, toastr){
     var self = this;
     var auth=$firebaseAuth();
-    console.log(this);
     
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
     });
 
     self.addComment=addComment;
+    self.placeholder=placeholder;
     
+
+
+    function placeholder(){
+        if(self.user){
+            return "You Can Leave Your Message Here"
+        } else return "To Leave Comment Authorize Please"
+    }
+
     function addComment(){
         var comment={
             author:self.user.email,

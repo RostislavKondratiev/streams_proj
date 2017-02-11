@@ -17,8 +17,6 @@ function chatCtrl($scope, dataservice, $firebaseAuth,toastr){
     self.sendMessage=sendMessage;
     self.limitMessages=limitMessages;
 
-
-    
     function limitMessages(){
         self.messagesView = self.messagesView ? false : true
         self.messages=dataservice.getMessages(self.messagesView);
