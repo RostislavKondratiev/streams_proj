@@ -8,12 +8,10 @@ function dataservice($firebaseObject, $firebaseArray){
     var profileRef = firebase.database().ref().child('profiles');
     var postsRef = firebase.database().ref().child('posts');
     var messagesRef = firebase.database().ref().child('messages');
-    var exRef = firebase.database().ref().child('posts').child('post1');
     var self = this;
 
 
     self.getFirstPosts=getFirstPosts;
-    self.getExPost=getExPost;
     self.getPostDetails=getPostDetails;
     self.addToPlaylist=addToPlaylist;
     self.getPlaylist=getPlaylist;
@@ -73,9 +71,6 @@ function dataservice($firebaseObject, $firebaseArray){
         return $firebaseArray(postsRef)
     }
 
-    function getExPost(){
-        return $firebaseObject(exRef);
-    }
 
 }        
 })();

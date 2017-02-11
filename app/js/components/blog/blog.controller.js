@@ -10,7 +10,6 @@ function blogCtrl($firebaseAuth, dataservice){
     self.user=false;
 
     self.posts=dataservice.getFirstPosts();
-    self.ex=dataservice.getExPost();
     self.deletePost=deletePost;
 
     auth.$onAuthStateChanged(function(authData){
@@ -18,7 +17,6 @@ function blogCtrl($firebaseAuth, dataservice){
     });
 
     self.posts.$loaded(function(){
-        self.count=(-(self.posts.length-4));
         self.devider=true;
     })
 

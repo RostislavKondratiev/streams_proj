@@ -2,11 +2,11 @@
 <div class="addfield" ng-if="$ctrl.user && $ctrl.devider">
     <a ui-sref="main.createpost">Create New Post</a>
 </div>
-<div class="mdl-grid cardswrap">
-    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='!$ctrl.devider'>
+<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='!$ctrl.devider'>
         <p class="proloader__message">Loading...</p>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock" ng-show='$ctrl.devider' ng-repeat="post in $ctrl.posts | reverse | limitTo : 4">
+</div>
+<div class="mdl-grid cardswrap">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock" ng-show='$ctrl.devider' ng-repeat="post in $ctrl.posts | reverse | topblog">
         <div class="demo-card-wide mdl-card mdl-shadow--2dp cardblock__item">
             <div class="mdl-card__title cardtitle" ng-style="{'background-image':'url({{post.image}})'}">
                 <h2 class="mdl-card__title-text">{{post.title}}</h2>
@@ -25,7 +25,7 @@
 </div>
 <div class="mdl-grid mdl-cell--12-col devider" ng-if="$ctrl.devider"></div>
 <div class="mdl-grid cardswrap">
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock"  ng-repeat="post in $ctrl.posts | reverse | limitTo : $ctrl.count">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone cardblock"  ng-repeat="post in $ctrl.posts | reverse | bottomblog">
         <div class="demo-card-wide mdl-card mdl-shadow--2dp cardblock__item">
             <div class="mdl-card__title cardtitle" ng-style="{'background-image':'url({{post.image}})'}">
                 <h2 class="mdl-card__title-text">{{post.title}}</h2>

@@ -8,14 +8,20 @@ function postDetailsCtrl($firebaseAuth, dataservice, toastr){
     var self = this;
     var auth=$firebaseAuth();
     
+    self.loader=true;
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
+        self.message='';
     });
+
+    self.$onInit=function(){
+        self.data.$loaded(function(){
+            self.loader=false;
+        })
+    }
 
     self.addComment=addComment;
     self.placeholder=placeholder;
-    
-
 
     function placeholder(){
         if(self.user){
@@ -32,8 +38,6 @@ function postDetailsCtrl($firebaseAuth, dataservice, toastr){
         console.log(comment);
         dataservice.addComment(self.data.$id,comment).then(successHandler,errorHandler);
     }
-
-
 
     function successHandler(res){
         self.message='';

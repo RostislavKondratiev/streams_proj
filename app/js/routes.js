@@ -35,12 +35,6 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
    $urlRouterProvider.otherwise('/blog')     
 }
 
-// reqAuth.$inject=['$firebaseAuth']
-// function reqAuth($firebaseAuth){
-//     var auth=$firebaseAuth();
-//     return $firebaseAuth().$requireSignIn();
-// }
-
 getComments.$inject=['dataservice','$transition$']
 function getComments(dataservice, $transition$){
     return dataservice.getComments($transition$.params().postId)
@@ -56,12 +50,11 @@ angular.module('app')
             
 createRestrict.$inject=['$transitions', 'dataservice'];           
 function createRestrict($transitions, dataservice){
-        $transitions.onStart({to:'main.createpost'},function(trans){
+        $transitions.onStart({to:['main.createpost']},function(trans){
             var state=trans.router.stateService;
-            console.log(dataservice.userData);
             if(dataservice.userData==undefined){
                 return state.target('main.blog');
             }
         })
-    }
+    }      
 })();

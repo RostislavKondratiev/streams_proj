@@ -1,4 +1,7 @@
-<div class="mdl-grid post-max-width">
+<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='$ctrl.loader'>
+    <p class="proloader__message">Loading...</p>
+</div>
+<div class="mdl-grid details-wrap" ng-cloak ng-if="!$ctrl.loader">
     <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--4dp details">
         <div class="mdl-card__title">
             <h1 class="mdl-card__title-text mdl-typography--text-center">

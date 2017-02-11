@@ -127,7 +127,8 @@ dialog::backdrop {
 .proloader__message {
   text-align: center;
   font-size: 24px;
-  margin-top: -30px; }
+  position: relative;
+  top: -30px; }
 
 .cardblock {
   display: -webkit-box;
@@ -136,7 +137,15 @@ dialog::backdrop {
   display: flex;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
-          justify-content: space-around; }
+          justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  .cardblock.ng-enter {
+    -webkit-transition: .5s linear all;
+    transition: .5s linear all;
+    opacity: 0; }
+  .cardblock.ng-enter-active {
+    opacity: 1; }
 
 .cardblock__actions {
   display: -webkit-box;
@@ -161,6 +170,14 @@ dialog::backdrop {
   text-align: right; }
   .cardtitle h2 {
     color: white; }
+
+.details-wrap.ng-enter {
+  -webkit-transition: .5s linear all;
+  transition: .5s linear all;
+  opacity: 0; }
+
+.details-wrap.ng-enter-active {
+  opacity: 1; }
 
 .details {
   margin: 0 auto; }
@@ -305,10 +322,11 @@ dialog::backdrop {
     outline: none;
     padding: 5px;
     width: 190px;
-    height: 100%; }
+    height: 35px;
+    resize: none; }
 
 .chat__send {
-  height: 100%;
+  height: 45px;
   width: 60px; }
 
 .chat__header {
@@ -405,6 +423,7 @@ dialog::backdrop {
 .createpost__prevtext {
   min-height: 310px;
   margin-top: 15px;
+  resize: none;
   width: 90%;
   border: 1px solid #cccccc; }
 
