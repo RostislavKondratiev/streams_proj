@@ -34,4 +34,4 @@ function createCtrl(dataservice,toastr,$state, $firebaseAuth){
        
 }
        
-})()
+})();

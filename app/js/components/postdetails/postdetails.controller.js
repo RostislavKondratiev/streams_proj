@@ -50,4 +50,4 @@ function postDetailsCtrl($firebaseAuth, dataservice, toastr){
     }
 
 }        
-})()
+})();

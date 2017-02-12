@@ -9,6 +9,10 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
             abstract: true,
             component:'mainComp'
         })
+        .state('main.welcome',{
+            component:'welcome',
+            url:'/welcome'
+        })
         .state('main.blog',{
             component:'blogComp',
             url:'/blog'
@@ -28,11 +32,10 @@ function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
         .state('main.createpost',{
             component:'createPost',
             url:'/create'
-            // resolve: reqAuth
         });
 
 
-   $urlRouterProvider.otherwise('/blog')     
+   $urlRouterProvider.otherwise('/welcome')     
 }
 
 getComments.$inject=['dataservice','$transition$']

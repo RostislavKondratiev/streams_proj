@@ -14,6 +14,7 @@ body
 .logo
     height: 55px
     width: 55px 
+    margin-right: 5px
 
 dialog
     top: 15px
@@ -106,7 +107,7 @@ dialog::backdrop
         text-decoration: none     
 
 .preloader
-    margin: 45vh auto
+    margin: 40vh auto 45vh
 
 .proloader__message
     text-align: center
@@ -365,5 +366,37 @@ dialog::backdrop
 .createpost__button
     text-align: center
     margin: 0 10px    
+
+.welcome
+    display: flex
+    flex-direction: column
+    align-items: center
+    background: linear-gradient(#e1e1e1, #42514e) !important
+    height: calc(100vh - 64px)
+    width: 100%
+    box-sizing: border-box
+
+.welcome__image
+    background-image: url('../images/Log6C34.png')
+    background-size: cover
+    background-position: center center
+    margin: 160px auto 0
+    width: 80%
+    height: 40%
+
+.welcome__content
+    font-size: 28px
+    position: relative
+    top: -105px
+    color: whitesmoke   
+    margin-bottom: -115px
+    
+.welcome__actions
+    i
+        font-size: 50px
+        color: whitesmoke
+        margin: 40px 50px
+        cursor: pointer
+    
 
 @import "media"

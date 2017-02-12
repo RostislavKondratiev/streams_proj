@@ -4,4 +4,4 @@ angular.module('app')
         templateUrl:'js/components/blog/blog.page.html',
         controller:'blogCtrl'
     })
-})()
+})();

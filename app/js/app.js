@@ -1,3 +1,5 @@
+  
+(function(angular) {
     angular.module('app',['firebase','ui.router','ngAnimate', 'toastr','luegg.directives','angularTrix','ngSanitize','twitchy'])
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {
@@ -12,8 +14,6 @@
         });
     });
 
-
-(function() {
 angular.module('app')
     .run(function ($rootScope, $timeout) {
         $rootScope.$on('$viewContentLoaded', function(){
@@ -32,4 +32,4 @@ angular.module('app')
     };
     firebase.initializeApp(config);
 
-})();
+})(angular);

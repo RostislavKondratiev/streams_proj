@@ -11,15 +11,19 @@ function playlistCtrl(dataservice, toastr,$firebaseAuth,$state){
         self.disabled=false;
         self.playlist=[];
         if(authData){
+            self.loader=false;
             self.user=authData;
             self.playlist=dataservice.getPlaylist(self.user.uid);
+            self.playlist.$loaded(function(res){
+                self.loader=true;
+            })
         } else {
             self.disabled=true;
+            self.loader=true;
             if($state.current.name==='main.playlist'){
                 toastr.info('You Are Not Authorized, to enable playlist please login', 'Info');
             }
         }
-
     });
     
     self.addPlayerHandler=addPlayerHandler;

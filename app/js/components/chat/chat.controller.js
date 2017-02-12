@@ -40,4 +40,4 @@ function chatCtrl($scope, dataservice, $firebaseAuth,toastr){
         } else toastr.warning('Authorize Please','Warning')
     }
 }    
-})()
+})();

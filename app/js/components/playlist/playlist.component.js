@@ -4,4 +4,4 @@ angular.module('app')
         templateUrl:'js/components/playlist/playlist.page.html',
         controller:'playlistCtrl'
     })    
-})()
+})();

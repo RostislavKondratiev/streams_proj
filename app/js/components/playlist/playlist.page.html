@@ -1,8 +1,8 @@
 <div class="mdl-grid">
-    <div class="mdl-grid mdl-cell mdl-cell--12-col addplayer">
+    <div class="mdl-grid mdl-cell mdl-cell--12-col addplayer" ng-if="$ctrl.loader">
         <form class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet" ng-submit="$ctrl.addPlayerHandler()">
             <div class="mdl-textfield mdl-js-textfield addchanel">
-                <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" id="sample1" required placeholder="Enter Channels Name">
+                <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" required placeholder="Enter Channels Name">
             </div>
             <label class="mdl-radio mdl-js-radio" for="option1">
                 <input type="radio" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.service" id="option1" value="twitch" name="player" class="mdl-radio__button" checked required>
@@ -17,7 +17,10 @@
             </button>
         </form>
     </div>
-        <div class="stream mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" ng-repeat="stream in $ctrl.playlist">
+        <div id="p2" ng-if="!$ctrl.loader" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='$ctrl.loader'>
+            <p class="proloader__message">Loading...</p>
+        </div>
+        <div ng-if="$ctrl.loader" class="stream mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" ng-repeat="stream in $ctrl.playlist">
             <div class="stream__controll">
                 <i class="stream__delete material-icons" ng-click="$ctrl.deletePlayerHandler(stream.$id)">clear</i>
             </div>

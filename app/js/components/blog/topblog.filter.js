@@ -7,4 +7,4 @@ angular.module('app')
         return items.slice(0,4);
     }    
     }    
-})()
+})();

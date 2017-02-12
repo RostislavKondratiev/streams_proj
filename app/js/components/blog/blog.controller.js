@@ -29,4 +29,4 @@ function blogCtrl($firebaseAuth, dataservice){
         }
     }
 }        
-})()
+})();

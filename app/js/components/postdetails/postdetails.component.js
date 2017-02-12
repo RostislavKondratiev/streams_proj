@@ -8,4 +8,4 @@ angular.module('app')
         templateUrl:'js/components/postdetails/postdetails.page.html',
         controller: "postDetailsCtrl"
     })    
-})()
+})();

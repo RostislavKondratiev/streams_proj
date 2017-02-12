@@ -4,4 +4,4 @@ angular.module('app')
         templateUrl:'js/components/main/main.page.html',
         controller:'mainCtrl'
     })    
-})()
+})();
