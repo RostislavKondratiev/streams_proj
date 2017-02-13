@@ -11,7 +11,7 @@ function dataservice($firebaseObject, $firebaseArray){
     var self = this;
 
 
-    self.getFirstPosts=getFirstPosts;
+    self.getPosts=getPosts;
     self.getPostDetails=getPostDetails;
     self.addToPlaylist=addToPlaylist;
     self.getPlaylist=getPlaylist;
@@ -67,8 +67,8 @@ function dataservice($firebaseObject, $firebaseArray){
         return $firebaseObject(postsRef.child(id));
     }
 
-    function getFirstPosts(){
-        return $firebaseArray(postsRef)
+    function getPosts(limit){
+        return $firebaseArray(postsRef.limitToLast(limit))
     }
 
 

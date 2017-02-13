@@ -7,6 +7,9 @@ function playlistCtrl(dataservice, toastr,$firebaseAuth,$state){
     var auth=$firebaseAuth();
     var self = this;
 
+    self.addPlayerHandler=addPlayerHandler;
+    self.deletePlayerHandler=deletePlayerHandler;
+
     auth.$onAuthStateChanged(function(authData){
         self.disabled=false;
         self.playlist=[];
@@ -25,9 +28,6 @@ function playlistCtrl(dataservice, toastr,$firebaseAuth,$state){
             }
         }
     });
-    
-    self.addPlayerHandler=addPlayerHandler;
-    self.deletePlayerHandler=deletePlayerHandler;
 
     function addPlayerHandler() {
         var channel = self.addplayer.site;

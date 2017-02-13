@@ -7,15 +7,15 @@ function createCtrl(dataservice,toastr,$state, $firebaseAuth){
     var auth = $firebaseAuth();
     var self=this;
 
+    self.addPost=addPost;
+    self.goBack=goBack;
+    
     auth.$onAuthStateChanged(function(authData){
         dataservice.userData=authData;
         if(dataservice.userData==null){
             $state.go('main.blog');
         }
     });
-
-    self.addPost=addPost;
-    self.goBack=goBack;
     
     function addPost(){
         if(!self.data.content==""){

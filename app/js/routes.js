@@ -1,6 +1,20 @@
 (function(){
 angular.module('app')
-    .config(stateHandler)
+    .config(stateHandler);
+
+angular.module('app')
+        .run(createRestrict);    
+
+
+createRestrict.$inject=['$transitions', 'dataservice'];           
+function createRestrict($transitions, dataservice){
+        $transitions.onStart({to:['main.createpost']},function(trans){
+            var state=trans.router.stateService;
+            if(dataservice.userData==undefined){
+                return state.target('main.blog');
+            }
+        })
+    } 
 
 stateHandler.$inject=['$stateProvider','$urlRouterProvider','$locationProvider'];
 function stateHandler($stateProvider,$urlRouterProvider,$locationProvider){
@@ -47,17 +61,5 @@ getPostDetails.$inject=['dataservice', '$transition$']
 function getPostDetails(dataservice, $transition$){
     return dataservice.getPostDetails($transition$.params().postId)
 }
-
-angular.module('app')
-        .run(createRestrict)   
-            
-createRestrict.$inject=['$transitions', 'dataservice'];           
-function createRestrict($transitions, dataservice){
-        $transitions.onStart({to:['main.createpost']},function(trans){
-            var state=trans.router.stateService;
-            if(dataservice.userData==undefined){
-                return state.target('main.blog');
-            }
-        })
-    }      
+         
 })();

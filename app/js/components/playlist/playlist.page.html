@@ -4,6 +4,7 @@
             <div class="mdl-textfield mdl-js-textfield addchanel">
                 <input class="mdl-textfield__input" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.site" type="text" required placeholder="Enter Channels Name">
             </div>
+            <div class="addchanel__controls">
             <label class="mdl-radio mdl-js-radio" for="option1">
                 <input type="radio" ng-disabled="$ctrl.disabled" ng-model="$ctrl.addplayer.service" id="option1" value="twitch" name="player" class="mdl-radio__button" checked required>
                 <span class="mdl-radio__label">Twitch</span>
@@ -15,6 +16,7 @@
             <button type="submit" ng-disabled="$ctrl.disabled" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--primary">
                 <i class="material-icons">add</i>
             </button>
+            </div>
         </form>
     </div>
         <div id="p2" ng-if="!$ctrl.loader" class="mdl-progress mdl-js-progress mdl-progress__indeterminate preloader" ng-if='$ctrl.loader'>

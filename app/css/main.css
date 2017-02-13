@@ -141,12 +141,12 @@ dialog::backdrop {
           justify-content: space-around;
   margin-top: 10px;
   margin-bottom: 10px; }
-  .cardblock.ng-enter {
-    -webkit-transition: .5s linear all;
-    transition: .5s linear all;
-    opacity: 0; }
-  .cardblock.ng-enter-active {
-    opacity: 1; }
+
+.cardblock__comments {
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 15px; }
 
 .cardblock__actions {
   display: -webkit-box;
@@ -171,6 +171,22 @@ dialog::backdrop {
   text-align: right; }
   .cardtitle h2 {
     color: white; }
+
+.more {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%; }
+
+.more__button {
+  margin: 10px 0;
+  width: 160px;
+  height: 35px; }
 
 .details-wrap.ng-enter {
   -webkit-transition: .5s linear all;
@@ -212,7 +228,8 @@ dialog::backdrop {
   outline: none;
   border: 1px solid black;
   overflow: hidden;
-  min-height: 20px; }
+  min-height: 20px;
+  resize: none; }
 
 .details__send {
   margin-left: auto;
@@ -246,6 +263,8 @@ dialog::backdrop {
 .devider {
   margin: 20px auto;
   height: 200px;
+  width: -webkit-calc(100% - 15px);
+  width: calc(100% - 15px);
   background-image: url(../images/devider.jpg);
   background-size: cover;
   background-position: center center; }
@@ -257,7 +276,11 @@ dialog::backdrop {
     opacity: 1; }
 
 .addchanel {
-  width: 165px; }
+  width: 165px;
+  height: 20px; }
+
+.addchanel__controls {
+  display: inline-block; }
 
 .stream {
   padding: 0 5px; }
@@ -302,13 +325,26 @@ dialog::backdrop {
   overflow: hidden;
   bottom: 0;
   right: 17px;
-  z-index: 9999; }
+  z-index: 9999;
+  opacity: 1; }
 
 .chat__button {
   position: absolute;
   bottom: 5px;
   right: 20px;
   z-index: 100; }
+
+.chat__badge {
+  position: absolute;
+  bottom: 25px;
+  right: -19px; }
+
+.chat__badge[data-badge]:after {
+  background: #3f51b5;
+  -webkit-border-radius: 40%;
+          border-radius: 40%;
+  width: 16px;
+  height: 16px; }
 
 .chat__input {
   display: -webkit-box;
@@ -425,7 +461,7 @@ dialog::backdrop {
   min-height: 310px;
   margin-top: 15px;
   resize: none;
-  width: 90%;
+  width: 20vw;
   border: 1px solid #cccccc; }
 
 .trix-editorwrap {
@@ -463,19 +499,19 @@ dialog::backdrop {
           box-sizing: border-box; }
 
 .welcome__image {
+  position: relative;
   background-image: url("../images/Log6C34.png");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
-  margin: 160px auto 0;
+  margin: 20vh auto -10vh;
   width: 80%;
   height: 40%; }
 
 .welcome__content {
   font-size: 28px;
   position: relative;
-  top: -105px;
-  color: whitesmoke;
-  margin-bottom: -115px; }
+  color: whitesmoke; }
 
 .welcome__actions i {
   font-size: 50px;
@@ -490,14 +526,59 @@ dialog::backdrop {
   .details__image {
     height: -webkit-calc(100vw * 0.7);
     height: calc(100vw * 0.7); }
+  #dialog {
+    width: 90%; }
   .logo-text {
     display: none; }
+  .icon {
+    width: 6vw !important; }
   .welcome {
     height: -webkit-calc(100vh - 56px);
     height: calc(100vh - 56px); }
   .welcome__image {
-    margin-top: 40px;
-    width: 90%;
-    height: 70%; }
+    height: -webkit-calc(90vw);
+    height: calc(90vw);
+    margin-top: 15vh;
+    margin-bottom: -18vh;
+    width: 100%; }
   .welcome__content {
-    top: -190px; } }
+    font-size: 20px; }
+  .cardswrap {
+    margin-top: 0; }
+  .details__comment-wrap {
+    margin: 0;
+    padding: 0; }
+  .details__send {
+    margin-right: 20px; }
+  #details__line {
+    margin-bottom: 20px; }
+  .devider {
+    display: none; } }
+
+@media only screen and (max-width: 360px) {
+  h6.header-right {
+    display: none; }
+  .createpost {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px; }
+  .welcome__image {
+    height: -webkit-calc(90vw);
+    height: calc(90vw);
+    margin-top: 15vh;
+    margin-bottom: -18vh;
+    width: 100%; }
+  .createpost__contentinput {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+  .trix-editorwrap {
+    width: 100%;
+    margin-right: 0; }
+  .createpost__prevtext-wrap {
+    width: 100%;
+    margin-right: 2px; }
+  .createpost__prevtext {
+    margin-top: 0;
+    width: 100%;
+    min-height: 150px; } }

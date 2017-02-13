@@ -50,7 +50,7 @@ gulp.task('collect',function(){
         .pipe(gulpif('*.js', embed({
             options:{basePath:'/js'}
         })))
-        // .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.js', uglify()))
         .pipe(gulp.dest('public'))
 })
 

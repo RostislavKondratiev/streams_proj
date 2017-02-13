@@ -7,26 +7,27 @@ postDetailsCtrl.$inject=['$firebaseAuth','dataservice','toastr']
 function postDetailsCtrl($firebaseAuth, dataservice, toastr){
     var self = this;
     var auth=$firebaseAuth();
-    
     self.loader=true;
+
+    self.$onInit=onInit
+    self.addComment=addComment;
+    self.placeholder=placeholder;
+    
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
         self.message='';
     });
 
-    self.$onInit=function(){
-        self.data.$loaded(function(){
-            self.loader=false;
-        })
-    }
-
-    self.addComment=addComment;
-    self.placeholder=placeholder;
-
     function placeholder(){
         if(self.user){
             return "You Can Leave Your Message Here"
         } else return "To Leave Comment Authorize Please"
+    }
+
+    function onInit(){
+        self.data.$loaded(function(){
+            self.loader=false;
+        })
     }
 
     function addComment(){

@@ -8,7 +8,6 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
     var auth = $firebaseAuth();
     
     var self = this;
-    self.chatState=false;
     self.user=false;
     self.data={};
     self.showdialog=showdialog;
@@ -17,9 +16,8 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
     self.loginGoogle=loginGoogle;
     self.register=register;
     self.logout=logout;
-    self.openChat=openChat;
 
-    console.log($scope)
+    console.log(this)
     
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
@@ -66,9 +64,6 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
         auth.$signOut();
     }
 
-    function openChat(){
-        self.chatState=self.chatState===false ? true : false;
-    }
   
     function successHandler(firebaseUser){
         closedialog();
