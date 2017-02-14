@@ -36,7 +36,6 @@ function postDetailsCtrl($firebaseAuth, dataservice, toastr){
             authorUid:self.user.uid,
             text:self.message
         }
-        console.log(comment);
         dataservice.addComment(self.data.$id,comment).then(successHandler,errorHandler);
     }
 

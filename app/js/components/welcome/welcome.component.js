@@ -1,6 +1,6 @@
 (function(){
     angular.module('app')
         .component('welcome',{
-            templateUrl:'js/components/welcome/welcome.page.html'
+            templateUrl:'components/welcome/welcome.page.html'
         })
 })();

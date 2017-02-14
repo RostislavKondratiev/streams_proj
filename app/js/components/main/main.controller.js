@@ -16,13 +16,10 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
     self.loginGoogle=loginGoogle;
     self.register=register;
     self.logout=logout;
-
-    console.log(this)
     
     auth.$onAuthStateChanged(function(authData){
         self.user=authData;
         dataservice.userData=authData;
-        console.log(dataservice.userData);
     });
 
     function showdialog() {
@@ -60,14 +57,13 @@ function mainCtrl($firebaseAuth, toastr, dataservice, $state, $scope){
     }
 
     function logout(){
-        dataservice.userData={};
         auth.$signOut();
+        dataservice.userData={};
     }
 
   
     function successHandler(firebaseUser){
         closedialog();
-        console.log(firebaseUser);
         toastr.success('Authorization Complete','Success');
     }
 

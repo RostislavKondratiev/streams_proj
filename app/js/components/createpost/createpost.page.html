@@ -1,9 +1,9 @@
 <div class="mdl-grid">
     <form name='postform' ng-submit="$ctrl.addPost()" class="mdl-shadow--4dp createpost">
-         <div class="mdl-textfield mdl-js-textfield">
+         <div class="mdl-textfield mdl-js-textfield createpost__input">
             <input class="mdl-textfield__input" ng-model="$ctrl.data.title" type="text" id="title" required placeholder="Title">
         </div>
-         <div class="mdl-textfield mdl-js-textfield">
+         <div class="mdl-textfield mdl-js-textfield createpost__input">
             <input class="mdl-textfield__input" ng-model="$ctrl.data.image" type="url" id="image" required placeholder="Image URL">
         </div>
         <div class="createpost__contentinput">

@@ -8,7 +8,7 @@ angular.module('app')
 
 createRestrict.$inject=['$transitions', 'dataservice'];           
 function createRestrict($transitions, dataservice){
-        $transitions.onStart({to:['main.createpost']},function(trans){
+        $transitions.onStart({to:'main.createpost'},function(trans){
             var state=trans.router.stateService;
             if(dataservice.userData==undefined){
                 return state.target('main.blog');

@@ -19,7 +19,7 @@ angular.module('app')
         $rootScope.$on('$viewContentLoaded', function(){
         $timeout(function() {
             componentHandler.upgradeAllRegistered();
-        })
+        },10)
     })
 });
   
