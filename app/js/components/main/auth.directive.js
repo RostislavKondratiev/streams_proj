@@ -3,7 +3,7 @@ angular.module('app')
     .directive('authDialog',function(){
         return{
             restrict:'E',
-            templateUrl:'components/main/auth.page.html',
+            templateUrl:'js/components/main/auth.page.html',
             link:authLink
         }
     })

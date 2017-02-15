@@ -145,6 +145,9 @@ dialog::backdrop {
   margin-top: 10px;
   margin-bottom: 10px; }
 
+.cardblock__prevtext {
+  min-height: 72px; }
+
 .cardblock__comments {
   color: white;
   position: absolute;

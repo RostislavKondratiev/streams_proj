@@ -1,7 +1,7 @@
 (function(){
 angular.module('app')
     .component('blogComp',{
-        templateUrl:'components/blog/blog.page.html',
+        templateUrl:'js/components/blog/blog.page.html',
         controller:'blogCtrl'
     })
 })();

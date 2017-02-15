@@ -5,7 +5,7 @@ angular.module('app')
             data: '<',
             comments: '<'
         },
-        templateUrl:'components/postdetails/postdetails.page.html',
+        templateUrl:'js/components/postdetails/postdetails.page.html',
         controller: "postDetailsCtrl"
     })    
 })();

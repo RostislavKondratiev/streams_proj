@@ -8,7 +8,7 @@
     </div>
     <div class="chat__body" scroll-glue>
         <div class="chat__message" ng-repeat="message in $ctrl.messages">
-            <span class="chat__message_all" ng-class='{ "chat__message_mine" : message.authorUid == $ctrl.user.uid }'>{{message.author}}</span>
+            <span class="chat__message_all" ng-class='{ "chat__message_mine" : message.authorUid == $ctrl.user.uid }'>{{message.author | names}}</span>
             <p class="mdl-typography--text-left" ng-bind-html="message.text | twitchy">{{message.text}}</p>
         </div>
     </div>  
